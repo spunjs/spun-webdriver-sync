@@ -25,5 +25,8 @@
     "jshint": "~2.5.1",
     "istanbul": "~0.2.13"
   },
-  "dependencies": {}
+  "dependencies": {
+    "composites": "~1.1.1",
+    "webdriver-sync": "~0.11.2"
+  }
 }
