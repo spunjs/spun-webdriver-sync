@@ -2,7 +2,7 @@
   "name": "spun-webdriver-sync",
   "main": "lib/spun-webdriver-sync.js",
   "version": "0.0.2",
-  "description": "webdriver-sync strategies for spun.",
+  "description": "A spun provider using webdriver-sync.",
   "author": "Joseph Spencer",
   "scripts": {
     "pretest": "jshint lib && jshint --config ./test/.jshintrc test",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jsdevel/spun-webdriver-sync.git"
+    "url": "https://github.com/spunjs/spun-webdriver-sync.git"
   },
   "keywords": [],
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jsdevel/spun-webdriver-sync/issues"
+    "url": "https://github.com/spunjs/spun-webdriver-sync/issues"
   },
   "devDependencies": {
     "coveralls": "~2.10.0",

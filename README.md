@@ -1,10 +1,10 @@
 # spun-webdriver-sync [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
-> webdriver-sync strategies for spun.
+> A spun provider using webdriver-sync.
 
 This module exposes spun compiler strategies to compile spun files down to
 `webdriver-sync` commands.
 
-For more info on `spun` see the [home page](https://github.com/jsdevel/spun.git).
+For more info on `spun` see the [home page](https://github.com/spunjs/spun.git).
 
 ## Usage
 
@@ -40,8 +40,8 @@ THE SOFTWARE.
 [npm-url]: https://npmjs.org/package/spun-webdriver-sync
 [npm-image]: http://img.shields.io/npm/v/spun-webdriver-sync.svg
 
-[travis-url]: https://travis-ci.org/jsdevel/spun-webdriver-sync
-[travis-image]: http://img.shields.io/travis/jsdevel/spun-webdriver-sync.svg
+[travis-url]: https://travis-ci.org/spunjs/spun-webdriver-sync
+[travis-image]: http://img.shields.io/travis/spunjs/spun-webdriver-sync.svg
 
-[coveralls-url]: https://coveralls.io/r/jsdevel/spun-webdriver-sync
-[coveralls-image]: http://img.shields.io/coveralls/jsdevel/spun-webdriver-sync/master.svg
+[coveralls-url]: https://coveralls.io/r/spunjs/spun-webdriver-sync
+[coveralls-image]: http://img.shields.io/coveralls/spunjs/spun-webdriver-sync/master.svg
