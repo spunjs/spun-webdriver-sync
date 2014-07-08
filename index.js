@@ -10,25 +10,33 @@ function Provider(argv){
 
   program
     .push('var driverMap = {')
-    .push(' chrome: "ChromeDriver",')
-    .push(' ff: "FirefoxDriver",')
-    .push(' ie: "InternetExplorerDriver",')
-    .push(' opera: "OperaDriver",')
+    .push(' chrome:  "ChromeDriver",')
+    .push(' ff:      "FirefoxDriver",')
+    .push(' ie:      "InternetExplorerDriver",')
+    .push(' opera:   "OperaDriver",')
     .push(' phantom: "PhantomJSDriver",')
-    .push(' safari: "SafariDriver"')
+    .push(' safari:  "SafariDriver"')
     .push('};')
     .push('var wd = require("webdriver-sync");')
     .push('var By = wd.By;')
     .push('var Driver = wd[driverMap[process.env.BROWSER]];')
     .push('var driver = new Driver();')
+    .push('var lastContext;')
     .push('process.on("uncaughtException", function(err){driver.quit();throw err;});');
+
+  this.find = function(line, lines){
+    program.push('lastContext = driver.findElement(By.cssSelector(', line.args, '));');
+  };
 
   this.get = function(line, lines){
     program.push('driver.get(', line.args, ');');
   };
 
   this.click = function(line, lines){
-    program.push('driver.findElement(By.cssSelector(', line.args, ')).click();');
+    if(line.args)
+      program.push('driver.findElement(By.cssSelector(', line.args, ')).click();');
+    else
+      program.push('lastContext.click();');
   };
 
   this.close = function(line, lines){
