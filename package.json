@@ -1,7 +1,7 @@
 {
   "name": "spun-webdriver-sync",
   "main": "lib/spun-webdriver-sync.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "webdriver-sync strategies for spun.",
   "author": "Joseph Spencer",
   "scripts": {
