@@ -1,11 +1,11 @@
 {
   "name": "spun-webdriver-sync",
-  "main": "lib/spun-webdriver-sync.js",
+  "main": "index.js",
   "version": "0.1.0",
   "description": "A spun provider using webdriver-sync.",
   "author": "Joseph Spencer",
   "scripts": {
-    "pretest": "jshint lib && jshint --config ./test/.jshintrc test",
+    "pretest": "jshint index.js && jshint --config ./test/.jshintrc test",
     "test": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls -v && rm -rf coverage"
   },
   "repository": {
