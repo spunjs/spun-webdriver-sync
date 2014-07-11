@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "composites": "~1.1.1",
-    "webdriver-sync": "0.12.0"
+    "webdriver-sync": "0.12.3"
   }
 }
