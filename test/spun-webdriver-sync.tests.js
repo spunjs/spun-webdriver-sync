@@ -17,6 +17,7 @@ describe('spun-webdriver-sync', function(){
       {command: 'find', args: '"[name=q]"'},
       {command: 'type', args: '"where are the dinosaurs?"'},
       {command: 'submit'},
+      {command: 'submit', args: '"[name=q]"'},
       {command: 'refresh'},
       {command: 'click', args: '".q.qs"'},
       {command: 'sleep', args: '5'},

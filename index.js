@@ -57,7 +57,10 @@ function Provider(argv){
   };
 
   this.submit = function(line, lines){
-    program.push('lastElement.submit();');
+    if(line.args)
+      program.push(f('driver.findElement(By.cssSelector(%s)).submit();', line.args));
+    else
+      program.push('lastElement.submit();');
   };
 
   this.type = function(line, lines){
