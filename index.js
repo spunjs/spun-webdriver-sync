@@ -56,5 +56,13 @@ function Provider(argv){
     program.push('wd.sleep(', parseInt(line.args) * 1000, ');');
   };
 
+  this.submit = function(line, lines){
+    program.push('lastElement.submit();');
+  };
+
+  this.type = function(line, lines){
+    program.push('lastElement.sendKeys(', line.args, ');');
+  };
+
   this.toString = program.join;
 }
