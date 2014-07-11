@@ -20,6 +20,9 @@ describe('spun-webdriver-sync', function(){
       {command: 'refresh'},
       {command: 'click', args: '".q.qs"'},
       {command: 'sleep', args: '5'},
+      {command: 'find', args: '"[name=q]"'},
+      {command: 'click'},
+      {command: 'close'},
       {command: 'quit'}
     ];
     var provider = new Provider();
