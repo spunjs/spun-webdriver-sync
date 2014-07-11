@@ -22,11 +22,11 @@ function Provider(argv){
     .push('var By = wd.By;')
     .push('var Driver = wd[driverMap[process.env.BROWSER]];')
     .push('var driver = new Driver();')
-    .push('var lastContext;')
+    .push('var lastElement;')
     .push('process.on("uncaughtException", function(err){driver.quit();throw err;});');
 
   this.find = function(line, lines){
-    program.push('lastContext = driver.findElement(By.cssSelector(', line.args, '));');
+    program.push('lastElement = driver.findElement(By.cssSelector(', line.args, '));');
   };
 
   this.get = function(line, lines){
@@ -37,7 +37,7 @@ function Provider(argv){
     if(line.args)
       program.push(f('driver.findElement(By.cssSelector(%s)).click();', line.args));
     else
-      program.push('lastContext.click();');
+      program.push('lastElement.click();');
   };
 
   this.close = function(line, lines){
