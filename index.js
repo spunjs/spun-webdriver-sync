@@ -3,6 +3,7 @@
 module.exports = Provider;
 
 var composites = require('composites');
+var f = require('util').format;
 var Program = composites.Program;
 
 function Provider(argv){
@@ -34,7 +35,7 @@ function Provider(argv){
 
   this.click = function(line, lines){
     if(line.args)
-      program.push('driver.findElement(By.cssSelector(', line.args, ')).click();');
+      program.push(f('driver.findElement(By.cssSelector(%s)).click();', line.args));
     else
       program.push('lastContext.click();');
   };
