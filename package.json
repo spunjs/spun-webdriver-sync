@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "composites": "~1.1.1",
-    "webdriver-sync": "https://github.com/jsdevel/webdriver-sync.git#633e80269cf68c97b99ad4724564eddba3ea3d90"
+    "webdriver-sync": "git+https://github.com/jsdevel/webdriver-sync.git#633e80269cf68c97b99ad4724564eddba3ea3d90"
   }
 }
