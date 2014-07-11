@@ -25,14 +25,6 @@ function Provider(argv){
     .push('var lastElement;')
     .push('process.on("uncaughtException", function(err){driver.quit();throw err;});');
 
-  this.find = function(line, lines){
-    program.push('lastElement = driver.findElement(By.cssSelector(', line.args, '));');
-  };
-
-  this.get = function(line, lines){
-    program.push('driver.get(', line.args, ');');
-  };
-
   this.click = function(line, lines){
     if(line.args)
       program.push(f('driver.findElement(By.cssSelector(%s)).click();', line.args));
@@ -42,6 +34,14 @@ function Provider(argv){
 
   this.close = function(line, lines){
     program.push('driver.close();');
+  };
+
+  this.find = function(line, lines){
+    program.push('lastElement = driver.findElement(By.cssSelector(', line.args, '));');
+  };
+
+  this.get = function(line, lines){
+    program.push('driver.get(', line.args, ');');
   };
 
   this.quit = function(line, lines){
