@@ -25,46 +25,49 @@ function Provider(argv){
     .push('var lastElement;')
     .push('process.on("uncaughtException", function(err){driver.quit();throw err;});');
 
-  this.click = function(line, lines){
-    if(line.args)
-      program.push(f('driver.findElement(By.cssSelector(%s)).click();', line.args));
+  this.click = function(args, line, spec){
+    if(args.query)
+      program.push(f('driver.findElement(By.cssSelector("%s")).click();', args.query));
     else
       program.push('lastElement.click();');
   };
 
-  this.close = function(line, lines){
+  this.close = function(args, line, spec){
     program.push('driver.close();');
   };
 
-  this.find = function(line, lines){
-    program.push('lastElement = driver.findElement(By.cssSelector(', line.args, '));');
+  this.find = function(args, line, spec){
+    program.push(f('lastElement = driver.findElement(By.cssSelector("%s"));', args.query));
   };
 
-  this.get = function(line, lines){
-    program.push('driver.get(', line.args, ');');
+  this.get = function(args, line, spec){
+    program.push(f('driver.get("%s");', args.url));
   };
 
-  this.quit = function(line, lines){
+  this.quit = function(args, line, spec){
     program.push('driver.quit();');
   };
 
-  this.refresh = function(line, lines){
+  this.refresh = function(args, line, spec){
     program.push('driver.navigate().refresh();');
   };
 
-  this.sleep = function(line, lines){
-    program.push('wd.sleep(', parseInt(line.args) * 1000, ');');
+  this.sleep = function(args, line, spec){
+    program.push(f('wd.sleep(%s);', args.amount * 1000));
   };
 
-  this.submit = function(line, lines){
-    if(line.args)
-      program.push(f('driver.findElement(By.cssSelector(%s)).submit();', line.args));
+  this.submit = function(args, line, spec){
+    if(args.query)
+      program.push(f('driver.findElement(By.cssSelector("%s")).submit();', args.query));
     else
       program.push('lastElement.submit();');
   };
 
-  this.type = function(line, lines){
-    program.push('lastElement.sendKeys(', line.args, ');');
+  this.type = function(args, line, spec){
+    if(args.query)
+      program.push(f('driver.findElement(By.cssSelector("%s")).sendKeys("%s");', args.query, args.text));
+    else
+      program.push(f('lastElement.sendKeys("%s");', args.text));
   };
 
   this.toString = program.join;
